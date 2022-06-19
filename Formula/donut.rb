@@ -9,17 +9,17 @@ class Donut < Formula
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "http://github.com/croixxant/donut/releases/v0.0.1/donut_0.0.1_Darwin_x86_64.tar.gz"
-      sha256 "16ee99c02ed95b2df707c910eb59a6f302f340c86df6c51285a2c4a1e5471da3"
+    if Hardware::CPU.arm?
+      url "https://github.com/croixxant/donut/releases/download/v0.0.1/donut_0.0.1_Darwin_arm64.tar.gz"
+      sha256 "ee7b3609196de0e678caacd4960ab26aa1a802f1b543b559f153e948ce4dc58d"
 
       def install
         bin.install "donut"
       end
     end
-    if Hardware::CPU.arm?
-      url "http://github.com/croixxant/donut/releases/v0.0.1/donut_0.0.1_Darwin_arm64.tar.gz"
-      sha256 "23920b7c8158a636503732571c7233eb21d50aca581b0f6bb06d9b709b089e58"
+    if Hardware::CPU.intel?
+      url "https://github.com/croixxant/donut/releases/download/v0.0.1/donut_0.0.1_Darwin_x86_64.tar.gz"
+      sha256 "eec9ff7fd89ba614ded4f352439b1ad00a257fea3311a21802ad2c7f37550594"
 
       def install
         bin.install "donut"
@@ -28,17 +28,17 @@ class Donut < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "http://github.com/croixxant/donut/releases/v0.0.1/donut_0.0.1_Linux_arm64.tar.gz"
-      sha256 "37035ee3eb52baf0bf2ce55b1c5e0bce08ac998270a4c6e32c5ecabfcd63f7e9"
+    if Hardware::CPU.intel?
+      url "https://github.com/croixxant/donut/releases/download/v0.0.1/donut_0.0.1_Linux_x86_64.tar.gz"
+      sha256 "1de1ff2775e1202bd188327f80a4cad90a30462550ee06925d26fee5ab4a99c7"
 
       def install
         bin.install "donut"
       end
     end
-    if Hardware::CPU.intel?
-      url "http://github.com/croixxant/donut/releases/v0.0.1/donut_0.0.1_Linux_x86_64.tar.gz"
-      sha256 "4d2056b159c480f760e73a3c1d85f767e8f1fea07849b77dadf018344feb7129"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/croixxant/donut/releases/download/v0.0.1/donut_0.0.1_Linux_arm64.tar.gz"
+      sha256 "cc64845bd461c8af5eafa9acd6bb961adea41c0a66187dc4ded12e1a8526207b"
 
       def install
         bin.install "donut"
