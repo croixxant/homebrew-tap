@@ -5,21 +5,21 @@
 class Donut < Formula
   desc "Tiny dotfiles management tool written in Go."
   homepage "https://github.com/croixxant/donut"
-  version "0.0.1"
+  version "0.0.2"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/croixxant/donut/releases/download/v0.0.1/donut_0.0.1_Darwin_arm64.tar.gz"
-      sha256 "ee7b3609196de0e678caacd4960ab26aa1a802f1b543b559f153e948ce4dc58d"
+    if Hardware::CPU.intel?
+      url "https://github.com/croixxant/donut/releases/download/v0.0.2/donut_0.0.2_Darwin_x86_64.tar.gz"
+      sha256 "e7cb3e27bb0ca6d85fff5062e504cb4e667d95ebf962647a107de3c083d62f1c"
 
       def install
         bin.install "donut"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/croixxant/donut/releases/download/v0.0.1/donut_0.0.1_Darwin_x86_64.tar.gz"
-      sha256 "eec9ff7fd89ba614ded4f352439b1ad00a257fea3311a21802ad2c7f37550594"
+    if Hardware::CPU.arm?
+      url "https://github.com/croixxant/donut/releases/download/v0.0.2/donut_0.0.2_Darwin_arm64.tar.gz"
+      sha256 "b57f44772f1fbcf52ad61dd3ee447d6912e6476b65de72ae910ceee1ac707ca3"
 
       def install
         bin.install "donut"
@@ -28,17 +28,17 @@ class Donut < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/croixxant/donut/releases/download/v0.0.1/donut_0.0.1_Linux_x86_64.tar.gz"
-      sha256 "1de1ff2775e1202bd188327f80a4cad90a30462550ee06925d26fee5ab4a99c7"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/croixxant/donut/releases/download/v0.0.2/donut_0.0.2_Linux_arm64.tar.gz"
+      sha256 "9c19940afa71e5ff6c8d1e81137b34f15fae5e5f0900a6019a9ddac415c5808a"
 
       def install
         bin.install "donut"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/croixxant/donut/releases/download/v0.0.1/donut_0.0.1_Linux_arm64.tar.gz"
-      sha256 "cc64845bd461c8af5eafa9acd6bb961adea41c0a66187dc4ded12e1a8526207b"
+    if Hardware::CPU.intel?
+      url "https://github.com/croixxant/donut/releases/download/v0.0.2/donut_0.0.2_Linux_x86_64.tar.gz"
+      sha256 "cda47d8a220a853e1fa7dff12a7cd9251a6b46bab2acedec7a36d03e1ebcf95d"
 
       def install
         bin.install "donut"
